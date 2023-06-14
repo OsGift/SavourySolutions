@@ -24,6 +24,7 @@
                                 <li id="extra"><strong>Extra info</strong></li>
                                 <li id="confirm"><strong>Finish</strong></li>
                             </ul>
+                            <div asp-validation-summary="All"></div>
                             <!-- fieldsets -->
                             <fieldset id="main-info">
                                 <div class="form-card">
@@ -134,9 +135,11 @@
         </div>
     </div>
 </div>
-
 @section Scripts
 {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
     <script src="/lib/tinymce/tinymce.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         tinymce.init({

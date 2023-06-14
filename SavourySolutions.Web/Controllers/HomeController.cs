@@ -67,9 +67,16 @@
 
         public async Task<IActionResult> Privacy()
         {
-            var privacy = await this.privacyService.GetViewModelAsync<PrivacyDetailsViewModel>();
+            try
+            {
 
-            return this.View(privacy);
+                var privacy = await this.privacyService.GetViewModelAsync<PrivacyDetailsViewModel>();
+                return privacy != null ? this.View(privacy) : (IActionResult)this.View();
+            }
+            catch (Exception ex)
+            {
+                return this.View();
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

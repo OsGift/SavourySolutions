@@ -82,11 +82,6 @@
                .To<TViewModel>()
                .FirstOrDefaultAsync();
 
-            if (privacyViewModel == null)
-            {
-                throw new NullReferenceException(ExceptionMessages.PrivacyViewModelNotFound);
-            }
-
             return privacyViewModel;
         }
 

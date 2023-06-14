@@ -31,10 +31,15 @@
         [Authorize]
         public async Task<IActionResult> Create(RecipeDetailsPageViewModel input)
         {
+            if (input.CreateReviewInputModel.Rate < 1) 
+            {
+                //ModelState.AddModelError("", "Kindly select a rating");
+            }
+
             if (!this.ModelState.IsValid)
             {
                 var recipe = await this.recipesService
-                    .GetViewModelByIdAsync<RecipeDetailsViewModel>(input.Recipe.Id);
+                    .GetViewModelByIdAsync<RecipeDetailsViewModel>(input.CreateReviewInputModel.RecipeId);
 
                 var model = new RecipeDetailsPageViewModel
                 {

@@ -29,7 +29,7 @@
         [StringLength(ContentMaxLength, MinimumLength = ContentMinLegth, ErrorMessage = ContentLengthError)]
         public string Content { get; set; }
 
-        [GoogleReCaptchaValidation]
-        public string RecaptchaValue { get; set; }
+        //[GoogleReCaptchaValidation]
+        //public string RecaptchaValue { get; set; } = "true";
     }
 }

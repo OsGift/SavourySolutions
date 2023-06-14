@@ -2,17 +2,17 @@
 {
     public static class GlobalConstants
     {
-        public const string SystemName = "Cooking Hub";
+        public const string SystemName = "Savoury Solutions";
 
-        public const string SystemEmail = "stanislav.stoyanov369@gmail.com";
+        public const string SystemEmail = "giftayodeleos@gmail.com";
 
         public const string AdministratorUsername = "Admin";
 
-        public const string AdministratorEmail = "slavkata_99@abv.bg";
+        public const string AdministratorEmail = "giftayodeleos@gmail.com";
 
         public const string AdministratorPassword = "Password1$";
 
-        public const string AdministratorFullName = "Stanislav";
+        public const string AdministratorFullName = "Gift Ayodele";
 
         public const string AdministratorRoleName = "Administrator";
 

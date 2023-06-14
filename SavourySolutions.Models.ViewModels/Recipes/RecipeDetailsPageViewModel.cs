@@ -4,7 +4,7 @@
 
     public class RecipeDetailsPageViewModel
     {
-        public RecipeDetailsViewModel Recipe { get; set; }
+        public RecipeDetailsViewModel? Recipe { get; set; }
 
         public CreateReviewInputModel CreateReviewInputModel { get; set; }
     }

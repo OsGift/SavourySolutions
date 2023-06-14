@@ -104,7 +104,7 @@
                 else if (!Model.Recipe.Reviews.Where(x => x.UserId == Model.Recipe.UserId).Any())
                 {
                     <button type="button" class="btn btn-CH ml-auto" data-toggle="modal" data-target="#reviewsModal">
-                        Create Review
+                       Review Recipie
                     </button>
                 }
                 else
@@ -128,6 +128,7 @@
                 </button>
             </div>
             <form id="submit-form" asp-controller="Reviews" asp-action="Create" method="post">
+                <div asp-validation-summary="All"></div>
                 <div class="modal-body">
                     <div class="form-group">
                         <span>Review for : @Model.Recipe.Name</span> <br>
@@ -151,6 +152,8 @@
                                 <label for="star1" title="1 star"></label>
                             </div>
                         </div>
+                        <span asp-validation-for="CreateReviewInputModel.Rate" class="text-danger"></span>
+
                         <label class="col-form-label" for="reviewDescription">Description:</label><br>
                         <textarea id="reviewDescription" asp-for="@Model.CreateReviewInputModel.Content"></textarea>
                         <div class="form-group">
@@ -203,3 +206,10 @@
         </div>
     </div>
 </div>
+@section Scripts
+{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+}

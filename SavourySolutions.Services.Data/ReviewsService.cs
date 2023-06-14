@@ -13,6 +13,7 @@
     using SavourySolutions.Services.Mapping;
 
     using Microsoft.EntityFrameworkCore;
+    using SavourySolutions.Models.ViewModels;
 
     public class ReviewsService : IReviewsService
     {
@@ -28,7 +29,7 @@
             this.recipesRepository = recipesRepository;
         }
 
-        public async Task CreateAsync(CreateReviewInputModel createReviewInputModel)
+        public async Task<ResponseModel> CreateAsync(CreateReviewInputModel createReviewInputModel)
         {
             var review = new Review
             {
@@ -46,7 +47,7 @@
 
             if (doesExist)
             {
-                throw new ArgumentException(string.Format(ExceptionMessages.ReviewAlreadyExists, review.Id));
+                return new ResponseModel { Suceeded = false, Message = ExceptionMessages.ReviewAlreadyExists };
             }
             else
             {
@@ -74,6 +75,7 @@
 
                 this.recipesRepository.Update(newrecipe);
                 await this.reviewsRepository.SaveChangesAsync();
+                return new ResponseModel { Suceeded = true, Message = "Review submitted successfully" };
             }
         }
 

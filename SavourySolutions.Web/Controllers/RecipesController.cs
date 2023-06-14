@@ -14,6 +14,7 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using System.Security.Claims;
 
     public class RecipesController : Controller
     {
@@ -70,7 +71,10 @@
             var model = new RecipeDetailsPageViewModel
             {
                 Recipe = recipe,
-                CreateReviewInputModel = new CreateReviewInputModel(),
+                CreateReviewInputModel = new CreateReviewInputModel()
+                {
+                    UserId = this.User == null ? default : this.User.FindFirstValue(ClaimTypes.NameIdentifier),
+                },
             };
 
             return this.View(model);
@@ -110,13 +114,13 @@
         public async Task<IActionResult> Submit(RecipeCreateInputModel recipeCreateInputModel)
         {
             var user = await this.userManager.GetUserAsync(this.User);
+            var categories = await this.categoriesService
+              .GetAllCategoriesAsync<CategoryDetailsViewModel>();
+
+            recipeCreateInputModel.Categories = categories;
 
             if (!this.ModelState.IsValid)
             {
-                var categories = await this.categoriesService
-                  .GetAllCategoriesAsync<CategoryDetailsViewModel>();
-
-                recipeCreateInputModel.Categories = categories;
 
                 return this.View(recipeCreateInputModel);
             }

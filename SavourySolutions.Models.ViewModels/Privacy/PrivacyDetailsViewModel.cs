@@ -13,7 +13,7 @@
         public int Id { get; set; }
 
         [Display(Name = PageContentDisplayName)]
-        public string PageContent { get; set; }
+        public string PageContent { get; set; } 
 
         public string SanitizedPageContent => new HtmlSanitizer().Sanitize(this.PageContent);
     }

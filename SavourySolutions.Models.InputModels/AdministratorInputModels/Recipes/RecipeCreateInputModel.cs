@@ -41,7 +41,7 @@
         [Required(ErrorMessage = EmptyFieldLengthError)]
         public string Difficulty { get; set; }
 
-        public string ImagePath { get; set; }
+        public string? ImagePath { get; set; }
 
         [Required(ErrorMessage = EmptyFieldLengthError)]
         [DataType(DataType.Upload)]
@@ -51,6 +51,6 @@
         [Display(Name = nameof(Category))]
         public int CategoryId { get; set; }
 
-        public IEnumerable<CategoryDetailsViewModel> Categories { get; set; }
+        public IEnumerable<CategoryDetailsViewModel>? Categories { get; set; }
     }
 }

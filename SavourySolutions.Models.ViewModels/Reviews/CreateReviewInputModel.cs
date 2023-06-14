@@ -11,11 +11,13 @@
 
         public int RecipeId { get; set; }
 
+
+        [Required(ErrorMessage = "Kindly choose a rating")]
         public int Rate { get; set; }
 
         [Required(ErrorMessage = EmptyFieldLengthError)]
         public string Content { get; set; }
 
-        public string UserId { get; set; }
+        public string? UserId { get; set; }
     }
 }

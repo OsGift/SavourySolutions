@@ -6,6 +6,7 @@
 
         public const string PrivacyNotFound = "Privacy with id {0} is not found.";
 
+        public const string PrivacyViewModelNotSetUp = "Privacy has not been set up.";
         public const string PrivacyViewModelNotFound = "Privacy view model is not found.";
 
         public const string FaqAlreadyExists = "Faq with question {0} and answer {1} already exists";
