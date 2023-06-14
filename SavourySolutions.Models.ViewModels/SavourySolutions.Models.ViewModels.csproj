@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+
+	<PropertyGroup>
+		<CodeAnalysisRuleSet>..\..\Rules.ruleset</CodeAnalysisRuleSet>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="HtmlSanitizer" Version="5.0.376" />
+		<PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SavourySolutions.Common\SavourySolutions.Common.csproj" />
+    <ProjectReference Include="..\SavourySolutions.Data.Models\SavourySolutions.Data.Models.csproj" />
+    <ProjectReference Include="..\SavourySolutions.Models.Common\SavourySolutions.Models.Common.csproj" />
+    <ProjectReference Include="..\SavourySolutions.Services.Mapping\SavourySolutions.Services.Mapping.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+	<PropertyGroup>
+		<CodeAnalysisRuleSet>..\..\Rules.ruleset</CodeAnalysisRuleSet>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+		<PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+    <ProjectReference Include="..\SavourySolutions.Models.Common\SavourySolutions.Models.Common.csproj" />
+    <ProjectReference Include="..\SavourySolutions.Models.ViewModels\SavourySolutions.Models.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>
