@@ -7,5 +7,6 @@
         public RecipeDetailsViewModel? Recipe { get; set; }
 
         public CreateReviewInputModel CreateReviewInputModel { get; set; }
+        public bool HasReviewedRecipie => Recipe?.Reviews?.Any(x => x.UserId == CreateReviewInputModel?.UserId) ?? false;
     }
 }

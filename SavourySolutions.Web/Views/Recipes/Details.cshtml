@@ -101,16 +101,16 @@
                        asp-route-returnUrl="/Recipes/Details/@Model.Recipe.Id"
                        class="btn btn-CH ml-auto">Sign in to create a review</a>
                 }
-                else if (!Model.Recipe.Reviews.Where(x => x.UserId == Model.Recipe.UserId).Any())
+                else if (Model.HasReviewedRecipie)
                 {
-                    <button type="button" class="btn btn-CH ml-auto" data-toggle="modal" data-target="#reviewsModal">
-                       Review Recipie
+                    <button type="button" class="btn btn-CH ml-auto" data-toggle="modal" data-target="#existingReviewModal">
+                        You have already reviewed this recipie!
                     </button>
                 }
                 else
                 {
-                    <button type="button" class="btn btn-CH ml-auto" data-toggle="modal" data-target="#existingReviewModal">
-                        You have already created review!
+                    <button type="button" class="btn btn-CH ml-auto" data-toggle="modal" data-target="#reviewsModal">
+                       Review Recipie
                     </button>
                 } 
             </div>

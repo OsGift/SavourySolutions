@@ -21,7 +21,7 @@
 
         [DataType(DataType.Url)]
         [StringLength(ImageMaxLength, MinimumLength = ImageMinLength, ErrorMessage = ImagePathError)]
-        public string ImagePath { get; set; }
+        public string? ImagePath { get; set; }
 
         [Required(ErrorMessage = EmptyFieldLengthError)]
         [DataType(DataType.Upload)]
@@ -30,6 +30,6 @@
         [Display(Name = CategoryDisplayName)]
         public int CategoryId { get; set; }
 
-        public IEnumerable<CategoryDetailsViewModel> Categories { get; set; }
+        public IEnumerable<CategoryDetailsViewModel>? Categories { get; set; }
     }
 }

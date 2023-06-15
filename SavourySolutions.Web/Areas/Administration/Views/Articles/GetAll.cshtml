@@ -23,9 +23,9 @@
                 <table class="table table-bordered table-dark table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">Id</th>
                             <th scope="col">Title</th>
                             <th scope="col">Description</th>
+                            <th scope="col">Date Created</th>
                             <th scope="col">Functions</th>
                         </tr>
                     </thead>
@@ -33,9 +33,9 @@
                         @foreach (var article in Model)
                         {
                             <tr>
-                                <th scope="row">@article.Id</th>
                                 <td>@article.Title</td>
                                 <td>@Html.Raw(article.SanitizedShortDescription)</td>
+                                <th scope="row">@article.CreatedOn</th>
                                 <td>
                                     <a class="badge badge-success" asp-action="Edit" asp-route-id="@article.Id">Edit</a>
                                     <a class="badge badge-danger" asp-action="Remove" asp-route-id="@article.Id">Remove</a>

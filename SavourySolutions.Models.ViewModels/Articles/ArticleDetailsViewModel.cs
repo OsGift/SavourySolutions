@@ -36,5 +36,6 @@
         public string SanitizedShortDescription => new HtmlSanitizer().Sanitize(this.ShortDescription);
 
         public string UserUsername { get; set; }
+        public DateTime? CreatedOn { get; set; } 
     }
 }

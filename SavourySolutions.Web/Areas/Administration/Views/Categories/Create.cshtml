@@ -19,7 +19,14 @@
                 <textarea asp-for="Description" class="form-control"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn btn-success">Save changes</button>
+            <div class="row align-items-start">
+                <div class="col-9">
+                    <button type="submit" class="btn btn-success">Save changes</button>
+                </div>
+                <div class="col-3">
+                    <a class="btn btn-success bi-arrow-return-left" asp-action="GetAll">Go to list</a>
+                </div>
+            </div>
         </form>
     </div>
 </div>

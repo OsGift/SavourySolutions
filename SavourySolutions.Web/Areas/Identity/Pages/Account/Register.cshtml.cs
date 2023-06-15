@@ -70,6 +70,7 @@
                     Email = this.Input.Email,
                     FullName = this.Input.FullName,
                     Gender = gender,
+                    ChangedPasswordOn = DateTime.Now.AddDays(30),
                 };
 
                 var result = await this.userManager.CreateAsync(user, this.Input.Password);
