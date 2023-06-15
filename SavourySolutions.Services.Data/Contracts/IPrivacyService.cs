@@ -9,7 +9,7 @@
     {
         Task<PrivacyDetailsViewModel> CreateAsync(PrivacyCreateInputModel privacyCreateInputModel);
 
-        Task EditAsync(PrivacyEditViewModel privacyEditViewModel);
+        Task<bool> EditAsync(PrivacyEditViewModel privacyEditViewModel);
 
         Task<TViewModel> GetViewModelAsync<TViewModel>();
     }

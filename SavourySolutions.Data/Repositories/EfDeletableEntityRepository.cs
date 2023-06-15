@@ -39,5 +39,11 @@
             entity.DeletedOn = DateTime.UtcNow;
             this.Update(entity);
         }
+        public virtual async Task<TEntity> GetByIdAsync(object id)
+        {
+            var entity = await this.DbSet.FindAsync(id);
+            return entity;
+        }
+
     }
 }

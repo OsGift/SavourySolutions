@@ -59,20 +59,20 @@
             await this.privacyRepository.SaveChangesAsync();
         }
 
-        public async Task EditAsync(PrivacyEditViewModel privacyEditViewModel)
+        public async Task<bool> EditAsync(PrivacyEditViewModel privacyEditViewModel)
         {
             var privacy = await this.privacyRepository.All().FirstOrDefaultAsync(p => p.Id == privacyEditViewModel.Id);
 
             if (privacy == null)
             {
-                throw new NullReferenceException(
-                    string.Format(ExceptionMessages.PrivacyNotFound, privacyEditViewModel.Id));
+                return false;
             }
 
             privacy.PageContent = privacyEditViewModel.PageContent;
 
             this.privacyRepository.Update(privacy);
             await this.privacyRepository.SaveChangesAsync();
+            return true;
         }
 
         public async Task<TViewModel> GetViewModelAsync<TViewModel>()
@@ -87,6 +87,7 @@
 
         public async Task<TViewModel> GetViewModelByIdAsync<TViewModel>(int id)
         {
+            //var privacy = await this.privacyRepository.GetByIdAsync(id);
             var privacy = await this.privacyRepository
                 .All()
                 .Where(p => p.Id == id)

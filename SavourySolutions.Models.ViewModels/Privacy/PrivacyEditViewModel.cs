@@ -16,5 +16,7 @@
         [Required(ErrorMessage = EmptyFieldLengthError)]
         [StringLength(PageContentMaxLength, MinimumLength = PageContentMinLength, ErrorMessage = PageContentLengthError)]
         public string PageContent { get; set; }
+        public bool HasContent => !string.IsNullOrWhiteSpace(PageContent);
+
     }
 }

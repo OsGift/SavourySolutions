@@ -87,11 +87,9 @@
 
             if (review == null)
             {
-                throw new NullReferenceException(string.Format(ExceptionMessages.ReviewNotFound, id));
+                this.reviewsRepository.Delete(review);
+                await this.reviewsRepository.SaveChangesAsync();
             }
-
-            this.reviewsRepository.Delete(review);
-            await this.reviewsRepository.SaveChangesAsync();
         }
 
         public async Task<TViewModel> GetViewModelByIdAsync<TViewModel>(int id)
